@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공매검색 — AuctionInsight</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Header -->
+<header class="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6">
+    <a href="index.html" class="text-xl font-extrabold tracking-tight shrink-0">Auction<span class="text-[var(--accent)]">Insight</span></a>
+    <div class="flex-1 max-w-xl relative hidden sm:block">
+      <input type="text" placeholder="주소, 물건관리번호로 검색" class="w-full border border-gray-300 rounded-full pl-5 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black/80">
+      <button class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm">🔍</button>
+    </div>
+    <div class="ml-auto flex items-center gap-5 text-sm text-gray-600 shrink-0">
+      <a href="#" class="hidden md:inline hover:text-black">관심물건함</a>
+      <a href="#" class="hidden md:inline hover:text-black">알림센터</a>
+      <button class="flex items-center gap-1.5 bg-black text-white text-sm font-medium px-4 py-2 rounded-full"><span>☰</span> 전체메뉴</button>
+    </div>
+  </div>
+  <nav class="max-w-7xl mx-auto px-6 flex items-center gap-7 text-sm text-gray-700 overflow-x-auto no-scrollbar border-t border-gray-100">
+    <a href="search.html" class="py-3 hover:text-black whitespace-nowrap">경매검색</a>
+    <a href="gongmae.html" class="py-3 font-semibold text-black border-b-2 border-black whitespace-nowrap">공매검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">지도검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">차량·동산검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">채권/NPL</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">낙찰통계</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">교육/콘텐츠</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">전문가매칭</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">멤버십</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">고객센터</a>
+  </nav>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-8">
+  <h1 class="text-2xl font-bold flex items-center gap-2">🏛️ 공매검색</h1>
+  <p class="text-sm text-gray-500 mt-1 mb-6">한국자산관리공사 온비드(Onbid) 공식 오픈API 기반 부동산 공매 물건</p>
+
+  <!-- Filters -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">지역</p>
+      <select id="filterSido" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2">
+        <option value="">전체</option>
+        <option value="서울">서울</option>
+        <option value="경기">경기</option>
+        <option value="인천">인천</option>
+        <option value="부산">부산</option>
+        <option value="대전">대전</option>
+        <option value="대구">대구</option>
+      </select>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">용도</p>
+      <select id="filterUsage" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2">
+        <option value="">전체</option>
+        <option value="주거용">주거용건물</option>
+        <option value="상업용">상업용건물</option>
+        <option value="토지">토지</option>
+      </select>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">입찰상태</p>
+      <select id="filterStatus" class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2">
+        <option value="">전체</option>
+        <option value="ongoing">입찰중</option>
+        <option value="upcoming">입찰예정</option>
+      </select>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4 flex flex-col justify-center">
+      <button id="searchBtn" class="bg-black text-white text-sm font-semibold rounded-lg py-2.5">검색하기</button>
+    </div>
+  </div>
+
+  <p id="dataStatusBanner" class="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 my-4">불러오는 중…</p>
+
+  <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+</main>
+
+<footer class="border-t border-gray-200 mt-14 py-8 text-xs text-gray-400">
+  <div class="max-w-7xl mx-auto px-6">
+    ⓘ 물건 데이터는 한국자산관리공사 온비드(Onbid) 오픈API를 통해 제공됩니다. &nbsp;·&nbsp; AuctionInsight
+  </div>
+</footer>
+
+<script src="js/gongmae.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

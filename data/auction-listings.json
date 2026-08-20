@@ -1,0 +1,52 @@
+{
+  "source": "demo",
+  "note": "실제 법원경매 데이터가 아닌 예시 데이터입니다. 스크린샷/CSV로 실데이터를 받으면 이 파일을 갱신합니다.",
+  "updatedAt": "2026-08-20",
+  "items": [
+    {
+      "type": "아파트",
+      "caseNumber": "2024타경51204",
+      "address": "경기도 성남시 분당구 정자로 12",
+      "addressDetail": "101동 1802호",
+      "landArea": "32.1㎡(9.7평)",
+      "buildingArea": "84.9㎡(25.7평)",
+      "appraisal": "11억2000만원",
+      "minBid": "7억8400만원",
+      "discountPct": 30,
+      "failCount": 1,
+      "saleDate": "2026-09-02",
+      "views": 8204,
+      "emoji": "🏢"
+    },
+    {
+      "type": "아파트",
+      "caseNumber": "2023타경88710",
+      "address": "서울특별시 마포구 월드컵로 45",
+      "addressDetail": "203동 1104호",
+      "landArea": "48.2㎡(14.6평)",
+      "buildingArea": "76.3㎡(23.1평)",
+      "appraisal": "15억5000만원",
+      "minBid": "9억9200만원",
+      "discountPct": 36,
+      "failCount": 2,
+      "saleDate": "2026-09-18",
+      "views": 6512,
+      "emoji": "🏬"
+    },
+    {
+      "type": "단독주택",
+      "caseNumber": "2024타경19933",
+      "address": "서울특별시 서대문구 연희동 88-4",
+      "addressDetail": "",
+      "landArea": "210.5㎡(63.7평)",
+      "buildingArea": "156.2㎡(47.3평)",
+      "appraisal": "22억4000만원",
+      "minBid": "11억4300만원",
+      "discountPct": 49,
+      "failCount": 3,
+      "saleDate": "2026-08-25",
+      "views": 14220,
+      "emoji": "🏠"
+    }
+  ]
+}

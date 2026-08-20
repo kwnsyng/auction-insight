@@ -25,7 +25,7 @@
   </div>
   <nav class="max-w-7xl mx-auto px-6 flex items-center gap-7 text-sm text-gray-700 overflow-x-auto no-scrollbar border-t border-gray-100">
     <a href="search.html" class="py-3 font-semibold text-black border-b-2 border-black whitespace-nowrap">경매검색</a>
-    <a href="#" class="py-3 hover:text-black whitespace-nowrap">공매검색</a>
+    <a href="gongmae.html" class="py-3 hover:text-black whitespace-nowrap">공매검색</a>
     <a href="#" class="py-3 hover:text-black whitespace-nowrap">지도검색</a>
     <a href="#" class="py-3 hover:text-black whitespace-nowrap">차량·동산검색</a>
     <a href="#" class="py-3 hover:text-black whitespace-nowrap">채권/NPL</a>
@@ -175,72 +175,11 @@
     </div>
   </div>
 
-  <!-- Result cards -->
+  <p id="dataStatusBanner" class="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">🧪 예시 데이터 표시 중 — 법원경매 공식 실시간 API가 없어 스크린샷/CSV 기반으로 순차 반영 예정입니다.</p>
+
+  <!-- Result cards (loaded from data/auction-listings.json — see js/auction-data.js) -->
   <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
-      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
-        🏢
-        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
-      </div>
-      <div class="p-4">
-        <p class="text-xs text-gray-400 mb-1">아파트 · 2024타경51204</p>
-        <p class="font-semibold text-sm leading-snug mb-2">경기도 성남시 분당구 정자로 12<br>101동 1802호</p>
-        <p class="text-xs text-gray-400 mb-2">토지 32.1㎡(9.7평) · 건물 84.9㎡(25.7평)</p>
-        <div class="text-xs space-y-0.5">
-          <p class="text-gray-500">감정가 <span class="text-gray-700">11억2000만원</span></p>
-          <p class="text-gray-500">최저가 <span class="font-bold text-black">7억8400만원</span> <span class="text-[var(--accent)] font-semibold">30%↓</span></p>
-        </div>
-        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
-          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 1회</span>
-          <span>📅 26.09.02 <span class="text-[var(--accent)] font-medium">D-13</span></span>
-        </div>
-        <p class="text-[11px] text-gray-300 mt-1">조회 8,204</p>
-      </div>
-    </a>
-
-    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
-      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
-        🏬
-        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
-      </div>
-      <div class="p-4">
-        <p class="text-xs text-gray-400 mb-1">아파트 · 2023타경88710</p>
-        <p class="font-semibold text-sm leading-snug mb-2">서울특별시 마포구 월드컵로 45<br>203동 1104호</p>
-        <p class="text-xs text-gray-400 mb-2">토지 48.2㎡(14.6평) · 건물 76.3㎡(23.1평)</p>
-        <div class="text-xs space-y-0.5">
-          <p class="text-gray-500">감정가 <span class="text-gray-700">15억5000만원</span></p>
-          <p class="text-gray-500">최저가 <span class="font-bold text-black">9억9200만원</span> <span class="text-[var(--accent)] font-semibold">36%↓</span></p>
-        </div>
-        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
-          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 2회</span>
-          <span>📅 26.09.18 <span class="text-[var(--accent)] font-medium">D-29</span></span>
-        </div>
-        <p class="text-[11px] text-gray-300 mt-1">조회 6,512</p>
-      </div>
-    </a>
-
-    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
-      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
-        🏠
-        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
-      </div>
-      <div class="p-4">
-        <p class="text-xs text-gray-400 mb-1">단독주택 · 2024타경19933</p>
-        <p class="font-semibold text-sm leading-snug mb-2">서울특별시 서대문구 연희동 88-4</p>
-        <p class="text-xs text-gray-400 mb-2">토지 210.5㎡(63.7평) · 건물 156.2㎡(47.3평)</p>
-        <div class="text-xs space-y-0.5">
-          <p class="text-gray-500">감정가 <span class="text-gray-700">22억4000만원</span></p>
-          <p class="text-gray-500">최저가 <span class="font-bold text-black">11억4300만원</span> <span class="text-[var(--accent)] font-semibold">49%↓</span></p>
-        </div>
-        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
-          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 3회</span>
-          <span>📅 26.08.25 <span class="text-[var(--accent)] font-medium">D-5</span></span>
-        </div>
-        <p class="text-[11px] text-gray-300 mt-1">조회 14,220</p>
-      </div>
-    </a>
-
+    <p class="text-sm text-gray-400 col-span-full py-10 text-center">불러오는 중…</p>
   </div>
 
   <div class="flex justify-center mt-8">
@@ -254,6 +193,7 @@
   </div>
 </footer>
 
+<script src="js/auction-data.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
