@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuctionInsight — 경매분석 서비스</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Header -->
+<header class="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6">
+    <a href="index.html" class="text-xl font-extrabold tracking-tight shrink-0">Auction<span class="text-[var(--accent)]">Insight</span></a>
+
+    <div class="flex-1 max-w-xl relative hidden sm:block">
+      <input type="text" placeholder="주소, 사건번호로 검색" class="w-full border border-gray-300 rounded-full pl-5 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black/80">
+      <button class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm">🔍</button>
+    </div>
+
+    <div class="ml-auto flex items-center gap-5 text-sm text-gray-600 shrink-0">
+      <a href="#" class="hidden md:inline hover:text-black">관심물건함</a>
+      <a href="#" class="hidden md:inline hover:text-black">알림센터</a>
+      <button class="flex items-center gap-1.5 bg-black text-white text-sm font-medium px-4 py-2 rounded-full">
+        <span>☰</span> 전체메뉴
+      </button>
+    </div>
+  </div>
+
+  <nav class="max-w-7xl mx-auto px-6 flex items-center gap-7 text-sm text-gray-700 overflow-x-auto no-scrollbar border-t border-gray-100">
+    <a href="search.html" class="py-3 font-semibold text-black border-b-2 border-black whitespace-nowrap">경매검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">공매검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">지도검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">차량·동산검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">채권/NPL</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">낙찰통계</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">교육/콘텐츠</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">전문가매칭</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">멤버십</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">고객센터</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<main class="max-w-7xl mx-auto px-6 py-6">
+  <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-5">
+
+    <!-- Hero carousel card -->
+    <div class="hero-card rounded-2xl relative overflow-hidden text-white min-h-[320px] flex items-center px-8 md:px-12 py-10">
+      <button id="heroPrev" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">‹</button>
+      <button id="heroNext" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">›</button>
+
+      <div class="flex-1 z-10">
+        <p class="text-xs tracking-widest text-gray-400 mb-3">SMARTER BIDDING STARTS HERE</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+          경매 데이터,<br>
+          <span class="text-[var(--accent)]">한눈에 정리</span>해서<br>
+          앱으로 받아보세요
+        </h1>
+        <p class="text-gray-400 mt-4 text-sm md:text-base">권리분석부터 낙찰 통계까지, 어디서든 빠르게</p>
+        <button class="mt-6 bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full">앱 다운로드</button>
+      </div>
+
+      <div class="hidden md:flex items-center justify-center w-64 h-64 phone-mock rounded-3xl ml-6 z-10">
+        <span class="text-5xl opacity-70">📱</span>
+      </div>
+
+      <div class="absolute bottom-5 left-8 right-8 flex items-center gap-3 z-10">
+        <button class="text-white/70 text-xs">⏸</button>
+        <div id="heroDots" class="flex items-center gap-1.5">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span id="slideLabel" class="ml-auto text-xs text-gray-400 tabular-nums">03 / 05</span>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="flex flex-col gap-5">
+      <div class="border border-gray-200 rounded-2xl p-5 relative">
+        <div id="iconRail" class="grid grid-cols-4 gap-4 text-center overflow-x-auto no-scrollbar">
+          <a href="search.html" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🔍</span>
+            <span class="text-xs text-gray-700">경매검색</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🏛️</span>
+            <span class="text-xs text-gray-700">공매검색</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🗺️</span>
+            <span class="text-xs text-gray-700">지도검색</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group relative">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🛡️</span>
+            <span class="absolute -top-1 right-2 bg-[var(--accent)] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">N</span>
+            <span class="text-xs text-gray-700">채권/NPL</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">📅</span>
+            <span class="text-xs text-gray-700">경매신청</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🔨</span>
+            <span class="text-xs text-gray-700">낙찰결과</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">🚗</span>
+            <span class="text-xs text-gray-700">차량검색</span>
+          </a>
+          <a href="#" class="flex flex-col items-center gap-2 group relative">
+            <span class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-xl group-hover:bg-black group-hover:text-white transition">📊</span>
+            <span class="text-xs text-gray-700">낙찰통계</span>
+          </a>
+        </div>
+        <button id="iconRailNext" class="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-gray-300 items-center justify-center shadow-sm">›</button>
+        <div class="flex items-center justify-center gap-1.5 mt-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-2xl p-5 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-sm">맞춤 피드 <span class="text-gray-400">›</span></h3>
+          <a href="#" class="text-xs text-gray-500 border border-gray-200 rounded-full px-3 py-1">관심물건함</a>
+        </div>
+        <div class="mt-auto bg-black rounded-xl py-4 text-center">
+          <a href="#" class="text-white font-semibold text-sm">AuctionInsight 로그인</a>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-3 leading-relaxed">
+          로그인하면 조건에 맞는 물건을 자동으로 모아드려요 🙂<br>
+          맞춤 피드로 더 빠르게 찾아보세요
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick value props -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+    <div class="border border-gray-200 rounded-2xl p-6">
+      <p class="text-2xl mb-2">⚖️</p>
+      <h4 class="font-bold mb-1">권리분석 자동화</h4>
+      <p class="text-sm text-gray-500 leading-relaxed">등기부와 임차인 현황을 분석해 낙찰 전 위험 요소를 미리 짚어드려요.</p>
+    </div>
+    <div class="border border-gray-200 rounded-2xl p-6">
+      <p class="text-2xl mb-2">📈</p>
+      <h4 class="font-bold mb-1">지역별 낙찰가 통계</h4>
+      <p class="text-sm text-gray-500 leading-relaxed">최근 낙찰 사례를 기반으로 적정 입찰가를 가늠할 수 있어요.</p>
+    </div>
+    <div class="border border-gray-200 rounded-2xl p-6">
+      <p class="text-2xl mb-2">🔔</p>
+      <h4 class="font-bold mb-1">조건 저장 알림</h4>
+      <p class="text-sm text-gray-500 leading-relaxed">원하는 조건을 저장해두면 새 물건이 뜰 때 바로 알려드려요.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-gray-200 mt-14 py-8 text-xs text-gray-400">
+  <div class="max-w-7xl mx-auto px-6">
+    ⓘ 본 페이지는 데모 프로토타입이며 실제 경매 데이터가 아닙니다. &nbsp;·&nbsp; AuctionInsight
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경매검색 — AuctionInsight</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Header -->
+<header class="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur z-40">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6">
+    <a href="index.html" class="text-xl font-extrabold tracking-tight shrink-0">Auction<span class="text-[var(--accent)]">Insight</span></a>
+    <div class="flex-1 max-w-xl relative hidden sm:block">
+      <input type="text" placeholder="주소, 사건번호로 검색" class="w-full border border-gray-300 rounded-full pl-5 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black/80">
+      <button class="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm">🔍</button>
+    </div>
+    <div class="ml-auto flex items-center gap-5 text-sm text-gray-600 shrink-0">
+      <a href="#" class="hidden md:inline hover:text-black">관심물건함</a>
+      <a href="#" class="hidden md:inline hover:text-black">알림센터</a>
+      <button class="flex items-center gap-1.5 bg-black text-white text-sm font-medium px-4 py-2 rounded-full"><span>☰</span> 전체메뉴</button>
+    </div>
+  </div>
+  <nav class="max-w-7xl mx-auto px-6 flex items-center gap-7 text-sm text-gray-700 overflow-x-auto no-scrollbar border-t border-gray-100">
+    <a href="search.html" class="py-3 font-semibold text-black border-b-2 border-black whitespace-nowrap">경매검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">공매검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">지도검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">차량·동산검색</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">채권/NPL</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">낙찰통계</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">교육/콘텐츠</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">전문가매칭</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">멤버십</a>
+    <a href="#" class="py-3 hover:text-black whitespace-nowrap">고객센터</a>
+  </nav>
+</header>
+
+<!-- Sub tabs -->
+<div class="border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 flex items-center gap-1 overflow-x-auto no-scrollbar">
+    <button class="px-4 py-3 text-sm font-semibold text-black border-b-2 border-black whitespace-nowrap">경매검색</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">신규물건</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">빠른신건</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">경매일정</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">낙찰결과</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">변경공고</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">예정물건</button>
+    <button class="px-4 py-3 text-sm text-gray-500 hover:text-black whitespace-nowrap">신건예정</button>
+  </div>
+</div>
+
+<main class="max-w-7xl mx-auto px-6 py-8">
+  <h1 class="text-2xl font-bold flex items-center gap-2">🔍 경매검색</h1>
+  <p class="text-sm text-gray-500 mt-1 mb-6">여러 조건을 조합해서 원하는 물건을 빠르게 찾아보세요</p>
+
+  <!-- Filters -->
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_1fr_300px] gap-4">
+
+    <!-- 지역·법원 -->
+    <div class="border border-gray-200 rounded-xl overflow-hidden">
+      <div class="px-4 pt-3 pb-2 border-b border-gray-100">
+        <p class="text-sm font-semibold mb-2">지역·법원</p>
+        <div class="flex gap-1 bg-gray-100 rounded-full p-1 text-xs">
+          <button class="flex-1 py-1.5 rounded-full bg-black text-white font-medium">지역별</button>
+          <button class="flex-1 py-1.5 rounded-full text-gray-500">법원별</button>
+        </div>
+      </div>
+      <ul data-select-group class="text-sm px-4 py-2 max-h-56 overflow-y-auto no-scrollbar">
+        <li class="filter-list-item active py-1.5">전체</li>
+        <li class="filter-list-item py-1.5">서울</li>
+        <li class="filter-list-item py-1.5">경기</li>
+        <li class="filter-list-item py-1.5">인천</li>
+        <li class="filter-list-item py-1.5">부산</li>
+        <li class="filter-list-item py-1.5">대전</li>
+        <li class="filter-list-item py-1.5">대구</li>
+        <li class="filter-list-item py-1.5">광주</li>
+      </ul>
+    </div>
+
+    <!-- 용도 -->
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">용도</p>
+      <ul data-select-group class="text-sm space-y-1.5">
+        <li class="filter-list-item active py-0.5">전체</li>
+        <li class="filter-list-item py-0.5 flex items-center justify-between">주거용건물 <span class="text-gray-300">›</span></li>
+        <li class="filter-list-item py-0.5 flex items-center justify-between">상업용건물 <span class="text-gray-300">›</span></li>
+        <li class="filter-list-item py-0.5 flex items-center justify-between">토지 <span class="text-gray-300">›</span></li>
+      </ul>
+    </div>
+
+    <!-- 유찰횟수 -->
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">유찰횟수</p>
+      <ul data-select-group class="text-sm space-y-1.5">
+        <li class="filter-list-item active py-0.5">전체</li>
+        <li class="filter-list-item py-0.5">유찰 0회</li>
+        <li class="filter-list-item py-0.5">유찰 1회</li>
+        <li class="filter-list-item py-0.5">유찰 2회</li>
+        <li class="filter-list-item py-0.5">유찰 3회</li>
+        <li class="filter-list-item py-0.5">유찰 4회 이상</li>
+      </ul>
+    </div>
+
+    <!-- 물건상태 -->
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">물건상태</p>
+      <ul data-select-group class="text-sm space-y-1.5">
+        <li class="filter-list-item active py-0.5">진행중</li>
+        <li class="filter-list-item py-0.5">변경/연기</li>
+        <li class="filter-list-item py-0.5">낙찰</li>
+        <li class="filter-list-item py-0.5">취하/취소</li>
+      </ul>
+    </div>
+
+    <!-- 나만의 필터 -->
+    <div class="border border-gray-200 rounded-xl p-4 row-span-2 flex flex-col">
+      <p class="text-sm font-semibold mb-1">⭐ 나만의 필터</p>
+      <p class="text-xs text-gray-500 mb-3">자주 쓰는 조건을 저장해두고 바로 불러오세요</p>
+      <div class="space-y-2 flex-1">
+        <button class="my-filter-slot w-full text-left text-xs text-gray-400 border border-dashed border-gray-300 rounded-lg px-3 py-2.5 hover:border-gray-400">+ 빈 필터 슬롯</button>
+        <button class="my-filter-slot w-full text-left text-xs text-gray-400 border border-dashed border-gray-300 rounded-lg px-3 py-2.5 hover:border-gray-400">+ 빈 필터 슬롯</button>
+        <button class="my-filter-slot w-full text-left text-xs text-gray-400 border border-dashed border-gray-300 rounded-lg px-3 py-2.5 hover:border-gray-400">+ 빈 필터 슬롯</button>
+        <button class="my-filter-slot w-full text-left text-xs text-gray-400 border border-dashed border-gray-300 rounded-lg px-3 py-2.5 hover:border-gray-400">+ 빈 필터 슬롯</button>
+      </div>
+      <button class="mt-4 bg-black text-white text-sm font-semibold rounded-lg py-2.5">현재 조건 저장하기</button>
+    </div>
+
+    <!-- 특수권리 / 감정가·최저가 / 면적: second row spanning first 4 cols -->
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">특수권리</p>
+      <p class="text-xs text-gray-400">유치권, 법정지상권, 지분매각 등</p>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">감정가 / 최저가</p>
+      <p class="text-xs text-gray-400">금액 범위로 좁혀보세요</p>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4">
+      <p class="text-sm font-semibold mb-2">토지 / 건물면적</p>
+      <p class="text-xs text-gray-400">평형 범위로 좁혀보세요</p>
+    </div>
+    <div class="border border-gray-200 rounded-xl p-4 flex items-center justify-center text-xs text-gray-300">
+      + 필터 추가
+    </div>
+  </div>
+
+  <!-- Action row -->
+  <div class="flex items-center justify-end gap-3 mt-4">
+    <button id="clearFilters" class="text-sm text-gray-400 px-4 py-2.5">필터 지우기</button>
+    <button id="resetFilters" class="text-sm text-gray-600 border border-gray-300 rounded-lg px-5 py-2.5">초기화</button>
+    <button class="text-sm text-white bg-black rounded-lg px-8 py-2.5 font-semibold">검색하기</button>
+  </div>
+
+  <!-- Results header -->
+  <div class="flex flex-wrap items-center justify-between gap-3 mt-10 mb-4">
+    <p class="font-bold">전체 <span class="text-[var(--accent)]">12,480</span>건</p>
+    <div class="flex items-center gap-2 text-xs">
+      <select class="border border-gray-200 rounded-lg px-3 py-2 text-gray-600">
+        <option>지분물건 포함</option>
+        <option>지분물건 제외</option>
+      </select>
+      <select class="border border-gray-200 rounded-lg px-3 py-2 text-gray-600">
+        <option>매각기일 26.08.20 ~</option>
+      </select>
+      <select class="border border-gray-200 rounded-lg px-3 py-2 text-gray-600">
+        <option>조회수 높은순</option>
+        <option>최신 등록순</option>
+        <option>낙찰가율 높은순</option>
+      </select>
+      <div class="flex border border-gray-200 rounded-lg overflow-hidden">
+        <button id="viewGrid" class="bg-black text-white px-2.5 py-2">▦</button>
+        <button id="viewList" class="px-2.5 py-2">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result cards -->
+  <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
+      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
+        🏢
+        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
+      </div>
+      <div class="p-4">
+        <p class="text-xs text-gray-400 mb-1">아파트 · 2024타경51204</p>
+        <p class="font-semibold text-sm leading-snug mb-2">경기도 성남시 분당구 정자로 12<br>101동 1802호</p>
+        <p class="text-xs text-gray-400 mb-2">토지 32.1㎡(9.7평) · 건물 84.9㎡(25.7평)</p>
+        <div class="text-xs space-y-0.5">
+          <p class="text-gray-500">감정가 <span class="text-gray-700">11억2000만원</span></p>
+          <p class="text-gray-500">최저가 <span class="font-bold text-black">7억8400만원</span> <span class="text-[var(--accent)] font-semibold">30%↓</span></p>
+        </div>
+        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
+          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 1회</span>
+          <span>📅 26.09.02 <span class="text-[var(--accent)] font-medium">D-13</span></span>
+        </div>
+        <p class="text-[11px] text-gray-300 mt-1">조회 8,204</p>
+      </div>
+    </a>
+
+    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
+      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
+        🏬
+        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
+      </div>
+      <div class="p-4">
+        <p class="text-xs text-gray-400 mb-1">아파트 · 2023타경88710</p>
+        <p class="font-semibold text-sm leading-snug mb-2">서울특별시 마포구 월드컵로 45<br>203동 1104호</p>
+        <p class="text-xs text-gray-400 mb-2">토지 48.2㎡(14.6평) · 건물 76.3㎡(23.1평)</p>
+        <div class="text-xs space-y-0.5">
+          <p class="text-gray-500">감정가 <span class="text-gray-700">15억5000만원</span></p>
+          <p class="text-gray-500">최저가 <span class="font-bold text-black">9억9200만원</span> <span class="text-[var(--accent)] font-semibold">36%↓</span></p>
+        </div>
+        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
+          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 2회</span>
+          <span>📅 26.09.18 <span class="text-[var(--accent)] font-medium">D-29</span></span>
+        </div>
+        <p class="text-[11px] text-gray-300 mt-1">조회 6,512</p>
+      </div>
+    </a>
+
+    <a href="#" class="card-shadow border border-gray-200 rounded-xl overflow-hidden block">
+      <div class="h-36 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-3xl relative">
+        🏠
+        <button class="bookmark-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-sm">♡</button>
+      </div>
+      <div class="p-4">
+        <p class="text-xs text-gray-400 mb-1">단독주택 · 2024타경19933</p>
+        <p class="font-semibold text-sm leading-snug mb-2">서울특별시 서대문구 연희동 88-4</p>
+        <p class="text-xs text-gray-400 mb-2">토지 210.5㎡(63.7평) · 건물 156.2㎡(47.3평)</p>
+        <div class="text-xs space-y-0.5">
+          <p class="text-gray-500">감정가 <span class="text-gray-700">22억4000만원</span></p>
+          <p class="text-gray-500">최저가 <span class="font-bold text-black">11억4300만원</span> <span class="text-[var(--accent)] font-semibold">49%↓</span></p>
+        </div>
+        <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 text-xs text-gray-400">
+          <span class="bg-gray-100 rounded px-2 py-0.5">유찰 3회</span>
+          <span>📅 26.08.25 <span class="text-[var(--accent)] font-medium">D-5</span></span>
+        </div>
+        <p class="text-[11px] text-gray-300 mt-1">조회 14,220</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="flex justify-center mt-8">
+    <button class="text-sm border border-gray-300 rounded-full px-6 py-2.5 hover:bg-gray-50">더보기</button>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-14 py-8 text-xs text-gray-400">
+  <div class="max-w-7xl mx-auto px-6">
+    ⓘ 본 페이지는 데모 프로토타입이며 실제 경매 데이터가 아닙니다. &nbsp;·&nbsp; AuctionInsight
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
